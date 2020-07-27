@@ -1,6 +1,6 @@
 # Pytorch-YOLOv4
 
-**使用自己的数据集，很简单的任务，mAP=0.6, 可视化看，可以检测，但是效果不是很好（使用Faster-RCNN可以达到0.96）
+**使用自己的数据集，很简单的任务，mAP=0.6, 可视化看，可以检测，但是效果不是很好 (使用Faster-RCNN可以达到0.96)**
 
 ![](https://img.shields.io/static/v1?label=python&message=3.6|3.7&color=blue)
 ![](https://img.shields.io/static/v1?label=pytorch&message=1.4&color=<COLOR>)
