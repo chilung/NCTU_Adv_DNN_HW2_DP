@@ -262,7 +262,8 @@ class Yolo_dataset(Dataset):
 
         self.truth = truth
         self.imgs = list(self.truth.keys())
-        if 1:
+        # debug
+        if 0:
             self.imgs = self.imgs[:20]
 
     def __len__(self):
@@ -411,31 +412,6 @@ class Yolo_dataset(Dataset):
         target['iscrowd'] = torch.zeros((num_objs,), dtype=torch.int64)
         return img, target
 
-GLOBAL_IMG_ID = 0
-
-def get_image_id(filename:str) -> int:
-    """
-    Convert a string to a integer.
-    Make sure that the images and the `image_id`s are in one-one correspondence.
-    There are already `image_id`s in annotations of the COCO dataset,
-    in which case this function is unnecessary.
-    For creating one's own `get_image_id` function, one can refer to
-    https://github.com/google/automl/blob/master/efficientdet/dataset/create_pascal_tfrecord.py#L86
-    or refer to the following code (where the filenames are like 'level1_123.jpg')
-    >>> lv, no = os.path.splitext(os.path.basename(filename))[0].split("_")
-    >>> lv = lv.replace("level", "")
-    >>> no = f"{int(no):04d}"
-    >>> return int(lv+no)
-    """
-    # raise NotImplementedError("Create your own 'get_image_id' function")
-    # lv, no = os.path.splitext(os.path.basename(filename))[0].split("_")
-    # lv = lv.replace("level", "")
-    # no = f"{int(no):04d}"
-    # return int(lv+no)
-    del filename
-    global GLOBAL_IMG_ID
-    GLOBAL_IMG_ID += 1
-    return GLOBAL_IMG_ID
 
 
 if __name__ == "__main__":
